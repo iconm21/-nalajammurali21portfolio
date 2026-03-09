@@ -1,39 +1,1161 @@
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="project-card">
-    <h3>Patient Document Portal</h3>
-    <p>A web application for managing patient documents securely.</p>
-    <a href="https://github.com/iconm21/Patient-Document-Portal" target="_blank">GitHub Link</a>
-    <a href="https://patientdocumentportal.com" target="_blank" class="btn">Live Demo</a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nalajam Murali - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+      /* ════════════════════════════════════════════════
+         PROFESSIONAL THEME — Navy · White · Gold
+         Color Palette:
+           --navy-dark  : #0a1628
+           --navy       : #102240
+           --navy-light : #1a3a5c
+           --gold       : #c9a84c
+           --gold-light : #e8c97a
+           --white      : #ffffff
+           --off-white  : #f5f7fa
+           --gray-light : #eaecf0
+           --gray-mid   : #8a9bb0
+           --text-dark  : #1a2537
+           --text-body  : #4a5568
+         ════════════════════════════════════════════════ */
+
+      /* ── Section Headings ── */
+      #education .section__text__p1,
+      #internships .section__text__p1,
+      #projects .section__text__p1,
+      #certifications .section__text__p1 {
+        color: #c9a84c;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      /* ══════════════════════════════
+         TIMELINE — shared base
+         ══════════════════════════════ */
+      .education-timeline, .internship-timeline {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+      }
+      .timeline-container {
+        position: relative;
+        padding-left: 2.5rem;
+      }
+      .timeline-container::before {
+        content: '';
+        position: absolute;
+        left: 14px;
+        top: 0; bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, #c9a84c 0%, #1a3a5c 100%);
+        border-radius: 2px;
+      }
+      .timeline-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+        padding-left: 1.5rem;
+      }
+      /* Gold dot */
+      .timeline-dot {
+        position: absolute;
+        left: -2rem;
+        top: 4px;
+        width: 18px; height: 18px;
+        border-radius: 50%;
+        background: #c9a84c;
+        border: 3px solid #ffffff;
+        box-shadow: 0 0 0 3px #c9a84c;
+      }
+      .timeline-dot.active {
+        background: #c9a84c;
+        box-shadow: 0 0 0 3px #c9a84c;
+        animation: goldPulse 2.2s infinite;
+      }
+      .timeline-dot.completed {
+        background: #1a3a5c;
+        box-shadow: 0 0 0 3px #1a3a5c;
+      }
+      @keyframes goldPulse {
+        0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.7); }
+        70%  { box-shadow: 0 0 0 10px rgba(201,168,76,0); }
+        100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+      }
+
+      /* ── Timeline Card Base ── */
+      .timeline-content {
+        background: #ffffff;
+        padding: 1.75rem 2rem;
+        border-radius: 10px;
+        border: 1px solid #eaecf0;
+        border-left: 4px solid #c9a84c;
+        box-shadow: 0 4px 20px rgba(10,22,40,0.07);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .timeline-content:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(10,22,40,0.12);
+      }
+      .timeline-content h3 {
+        color: #0a1628;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0.4rem 0 0.25rem;
+      }
+      .timeline-content h4 {
+        color: #4a5568;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        margin: 0.25rem 0;
+      }
+      .timeline-content h5 {
+        color: #0a1628;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin: 1rem 0 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* Year badge */
+      .timeline-year {
+        display: inline-block;
+        background: #0a1628;
+        color: #c9a84c;
+        padding: 0.3rem 0.9rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.75rem;
+      }
+      .institution {
+        color: #8a9bb0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin: 0.4rem 0;
+      }
+      .grade {
+        display: inline-block;
+        background: #f5f7fa;
+        color: #0a1628;
+        border: 1px solid #c9a84c;
+        padding: 0.3rem 0.9rem;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.88rem;
+        margin: 0.5rem 0;
+      }
+      .description {
+        color: #4a5568;
+        font-size: 0.92rem;
+        line-height: 1.7;
+        margin-top: 0.75rem;
+      }
+
+      /* ══════════════════════════════
+         EDUCATION CARD EXTRAS
+         ══════════════════════════════ */
+      .edu-card { border-left: 4px solid #c9a84c; }
+      .edu-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      .edu-icon-wrap {
+        width: 48px; height: 48px;
+        border-radius: 8px;
+        background: #0a1628 !important;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        border: 2px solid #c9a84c;
+      }
+      .edu-emoji { font-size: 1.5rem; }
+      .edu-tags {
+        display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem;
+      }
+      .edu-tag {
+        background: #f5f7fa;
+        color: #1a3a5c;
+        border: 1px solid #c9a84c55;
+        padding: 0.2rem 0.65rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+      }
+
+      /* ══════════════════════════════
+         INTERNSHIP CARD EXTRAS
+         ══════════════════════════════ */
+      .intern-card { border-left: 4px solid #c9a84c; }
+      .intern-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      .intern-logo-wrap {
+        width: 48px; height: 48px;
+        border-radius: 8px;
+        background: #0a1628 !important;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        border: 2px solid #c9a84c;
+      }
+      .intern-emoji { font-size: 1.5rem; }
+      .intern-badge {
+        display: inline-block;
+        background: #0a1628 !important;
+        color: #c9a84c !important;
+        padding: 0.3rem 0.9rem;
+        border-radius: 4px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.4rem;
+      }
+      .intern-grade {
+        display: inline-block;
+        background: #f5f7fa;
+        color: #0a1628;
+        border: 1px solid #c9a84c;
+        padding: 0.3rem 0.9rem;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.88rem;
+        margin: 0.5rem 0 0.75rem;
+      }
+      .internship-details ul {
+        list-style: none; padding: 0; margin: 0.5rem 0;
+      }
+      .internship-details li {
+        padding: 0.4rem 0;
+        color: #4a5568;
+        font-size: 0.9rem;
+        line-height: 1.65;
+        border-bottom: 1px solid #f0f2f5;
+        transition: color 0.2s, padding-left 0.2s;
+      }
+      .internship-details li:last-child { border-bottom: none; }
+      .internship-details li:hover {
+        color: #0a1628;
+        padding-left: 6px;
+      }
+      .intern-tags {
+        display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem;
+      }
+      .intern-tag {
+        background: #f5f7fa;
+        color: #1a3a5c;
+        border: 1px solid #c9a84c55;
+        padding: 0.2rem 0.65rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+      }
+
+      /* ══════════════════════════════
+         PROJECTS GRID — Image First
+         ══════════════════════════════ */
+      #projects { background: #f5f7fa; padding-bottom: 4rem; }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 2.5rem auto 1rem;
+        padding: 0 1.5rem;
+      }
+
+      /* Card shell */
+      .proj-card {
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #e2e6ea;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 18px rgba(10,22,40,0.07);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .proj-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(10,22,40,0.13);
+      }
+
+      /* Image area */
+      .proj-img-wrap {
+        position: relative;
+        width: 100%;
+        height: 210px;
+        overflow: hidden;
+        background: #0a1628;
+      }
+      .proj-screenshot {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .proj-card:hover .proj-screenshot {
+        transform: scale(1.04);
+      }
+
+      /* Fallback when no image */
+      .proj-img-fallback {
+        width: 100%; height: 100%;
+        background: #0a1628;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .proj-fallback-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .proj-fallback-icon { font-size: 3rem; }
+      .proj-fallback-label {
+        color: #c9a84c;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      /* Tech badges overlay — appears on hover */
+      .proj-img-overlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        background: linear-gradient(transparent, rgba(10,22,40,0.92));
+        padding: 1.5rem 1rem 0.75rem;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+      .proj-card:hover .proj-img-overlay {
+        transform: translateY(0);
+      }
+      .proj-tech-row {
+        display: flex; flex-wrap: wrap; gap: 0.35rem;
+      }
+      .proj-tech {
+        background: rgba(201,168,76,0.18);
+        color: #e8c97a;
+        border: 1px solid rgba(201,168,76,0.45);
+        padding: 0.18rem 0.6rem;
+        border-radius: 4px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+      }
+
+      /* Card body */
+      .proj-body {
+        padding: 1.4rem 1.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .proj-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 0.65rem;
+      }
+      .proj-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #0a1628;
+        line-height: 1.35;
+        flex: 1;
+      }
+      .proj-status {
+        background: #0a1628;
+        color: #c9a84c;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        white-space: nowrap;
+        letter-spacing: 0.04em;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .proj-desc {
+        color: #4a5568;
+        font-size: 0.88rem;
+        line-height: 1.65;
+        margin-bottom: 0.9rem;
+      }
+      .proj-points {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.2rem;
+        border-top: 1px solid #eaecf0;
+        padding-top: 0.75rem;
+        flex: 1;
+      }
+      .proj-points li {
+        color: #555e6e;
+        font-size: 0.82rem;
+        line-height: 1.55;
+        padding: 0.25rem 0 0.25rem 1rem;
+        position: relative;
+        border-bottom: 1px dashed #f0f2f5;
+      }
+      .proj-points li:last-child { border-bottom: none; }
+      .proj-points li::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: #c9a84c;
+        font-size: 0.75rem;
+      }
+
+      /* Buttons */
+      .proj-btns {
+        display: flex; gap: 0.6rem; margin-top: auto;
+      }
+      .proj-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.55rem 1.1rem;
+        border-radius: 6px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: none;
+      }
+      .proj-btn-outline {
+        background: transparent;
+        border: 1.5px solid #0a1628;
+        color: #0a1628;
+      }
+      .proj-btn-outline:hover {
+        background: #0a1628;
+        color: #c9a84c;
+      }
+      .proj-btn-fill {
+        background: #0a1628;
+        color: #c9a84c;
+        border: 1.5px solid #0a1628;
+      }
+      .proj-btn-fill:hover {
+        background: #1a3a5c;
+        border-color: #1a3a5c;
+        color: #e8c97a;
+      }
+
+      /* ══════════════════════════════
+         CERTIFICATIONS GRID
+         ══════════════════════════════ */
+      .cert-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        max-width: 860px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      .cert-card {
+        background: #ffffff;
+        border-radius: 10px;
+        border: 1px solid #eaecf0;
+        border-top: 4px solid #c9a84c;
+        padding: 2rem 1.75rem;
+        flex: 1;
+        min-width: 250px;
+        max-width: 360px;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(10,22,40,0.07);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .cert-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px rgba(10,22,40,0.12);
+      }
+      .cert-icon-wrap {
+        width: 60px; height: 60px;
+        border-radius: 50%;
+        background: #0a1628 !important;
+        border: 2px solid #c9a84c;
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 1rem;
+        box-shadow: 0 4px 12px rgba(10,22,40,0.18);
+      }
+      .cert-emoji { font-size: 1.75rem; }
+      .cert-card h3 { font-size: 1rem; color: #0a1628; font-weight: 700; margin-bottom: 0.35rem; }
+      .cert-issuer { color: #c9a84c; font-weight: 700; font-size: 0.88rem; margin-bottom: 0.3rem; letter-spacing: 0.03em; }
+      .cert-date { color: #8a9bb0; font-size: 0.82rem; margin-bottom: 0.75rem; }
+      .cert-desc { color: #4a5568; font-size: 0.86rem; line-height: 1.55; }
+
+      /* ── Responsive ── */
+      @media screen and (max-width: 768px) {
+        .education-timeline, .internship-timeline { padding: 1rem; }
+        .timeline-container { padding-left: 1.5rem; }
+        .timeline-content { padding: 1.25rem; }
+        .timeline-content h3 { font-size: 1.1rem; }
+        .projects-grid { grid-template-columns: 1fr; }
+        .edu-header, .intern-header { flex-direction: column; }
+        .cert-grid { flex-direction: column; align-items: center; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Nalajam Murali</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#internships">Internships</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Nalajam Murali</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#education" onclick="toggleMenu()">Education</a></li>
+           <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#internships" onclick="toggleMenu()">Internships</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.jpg" alt="Nalajam Murali profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Nalajam Murali</h1>
+        <p class="section__text__p2">Software Developer!</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/resume-example.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://LinkedIn.com/in/nalajammurali21'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/iconm21'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+        </div><br><br><br>
+          <div class="text-container">
+            <p>
+              Hello! I'm Nalajam Murali, a passionate and dedicated Computer Science graduate from Bharath Institute of Higher Education and Research, Chennai, with a strong academic record of 9.0 CGPA. Based in Tirupati, Andhra Pradesh, I'm an aspiring software developer with a keen interest in cutting-edge technologies and cybersecurity.
+My technical journey spans across multiple domains - from full-stack web development using Python, React.js, and Flask, to advanced machine learning applications in deepfake detection using convolutional neural networks. I've hands-on experience in developing robust web interfaces and have successfully implemented deep learning models that achieve high accuracy on industry-standard datasets.
+What sets me apart is my diverse skill set that bridges software development and cybersecurity. Through my virtual internships at EduSkill Academy and Zscaler Academy, I've gained practical experience in full-stack development and Zero Trust cloud security architecture. My project work demonstrates my ability to tackle complex problems - from building CNN-based models for media authenticity verification to creating user-friendly web applications.
+I'm certified in cybersecurity fundamentals through Cisco Networking Academy and have a solid foundation in programming languages, web technologies, databases, and security concepts. I'm passionate about leveraging technology to solve real-world problems and am eager to contribute to innovative projects in a collaborative team environment.
+I'm actively seeking opportunities to apply my technical skills and grow as a software developer while making meaningful contributions to dynamic organizations.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#education'"
+      />
+    </section>
+    <section id="education">
+      <p class="section__text__p1">My Academic</p>
+      <h1 class="title">Education Journey</h1>
+      <div class="education-timeline">
+        <div class="timeline-container">
+
+          <!-- B.Tech -->
+          <div class="timeline-item">
+            <div class="timeline-dot active"></div>
+            <div class="timeline-content edu-card">
+              <div class="edu-header">
+                <div class="edu-icon-wrap">
+                  <span class="edu-emoji">🎓</span>
+                </div>
+                <div>
+                  <div class="timeline-year">May 2021 – June 2025</div>
+                  <h3>Bachelor of Technology (B.Tech)</h3>
+                  <h4>Computer Science Engineering</h4>
+                </div>
+              </div>
+              <p class="institution">📍 Bharath Institute of Higher Education and Research, Chennai</p>
+              <div class="grade">⭐ CGPA: 9.1 / 10.0</div>
+              <p class="description">Specialized in full-stack development, AI/ML, cybersecurity and cloud technologies. Completed major projects in deepfake detection using CNNs and scalable web applications using Flask & React.js.</p>
+              <div class="edu-tags">
+                <span class="edu-tag">Python</span>
+                <span class="edu-tag">React.js</span>
+                <span class="edu-tag">Flask</span>
+                <span class="edu-tag">MySQL</span>
+                <span class="edu-tag">ML / AI</span>
+                <span class="edu-tag">Cybersecurity</span>
+                <span class="edu-tag">DSA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intermediate -->
+          <div class="timeline-item">
+            <div class="timeline-dot completed"></div>
+            <div class="timeline-content edu-card">
+              <div class="edu-header">
+                <div class="edu-icon-wrap">
+                  <span class="edu-emoji">📚</span>
+                </div>
+                <div>
+                  <div class="timeline-year">2019 – 2021</div>
+                  <h3>Intermediate (12th Grade)</h3>
+                  <h4>Mathematics, Physics, Chemistry (MPC)</h4>
+                </div>
+              </div>
+              <p class="institution">📍 Viswasai Junior College, Nellore</p>
+              <div class="grade">⭐ Score: 82.5%</div>
+              <p class="description">Built a strong analytical foundation in mathematics and sciences that paved the path for engineering. Developed problem-solving skills and logical thinking essential for programming and technology.</p>
+              <div class="edu-tags">
+                <span class="edu-tag">Mathematics</span>
+                <span class="edu-tag">Physics</span>
+                <span class="edu-tag">Chemistry</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SSC -->
+          <div class="timeline-item">
+            <div class="timeline-dot completed"></div>
+            <div class="timeline-content edu-card">
+              <div class="edu-header">
+                <div class="edu-icon-wrap">
+                  <span class="edu-emoji">🏫</span>
+                </div>
+                <div>
+                  <div class="timeline-year">2018 – 2019</div>
+                  <h3>Secondary School Certificate (SSC)</h3>
+                  <h4>10th Grade</h4>
+                </div>
+              </div>
+              <p class="institution">📍 TMR EM High School, Kothagunta</p>
+              <div class="grade">⭐ Score: 83%</div>
+              <p class="description">Completed secondary education with excellent all-round performance, demonstrating consistent academic dedication and a strong foundation across all core subjects.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#internships'"
+      />
+    </section>
+     <section id="skills" class="skills-section">
+  <div class="skills-container">
+    <p class="section__text__p1">Explore My</p>
+    <h1 class="title">Technical Skills</h1>
+
+    <div class="skills-categories">
+    <section id="skills">
+  <div class="skill-category">
+    <h2 class="category-title">Programming Languages</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo" class="skill-icon" />
+        <span class="skill-name">Python</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Logo" class="skill-icon" />
+        <span class="skill-name">JavaScript</span>
+      </div>
+    </div>
   </div>
-  <div class="project-card">
-    <h3>BANKING-MANAGEMENT-SYSTEM</h3>
-    <p>A comprehensive banking management system for handling transactions.</p>
-    <a href="https://github.com/iconm21/BANKING-MANAGEMENT-SYSTEM" target="_blank">GitHub Link</a>
-    <a href="https://bankingmanagementsystem.com" target="_blank" class="btn">Live Demo</a>
+
+  <div class="skill-category">
+    <h2 class="category-title">Web Technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Logo" class="skill-icon" />
+        <span class="skill-name">HTML5</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Logo" class="skill-icon" />
+        <span class="skill-name">CSS3</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Logo" class="skill-icon" />
+        <span class="skill-name">React.js</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask Logo" class="skill-icon" />
+        <span class="skill-name">Flask</span>
+      </div>
+    </div>
   </div>
-  <div class="project-card">
-    <h3>AI-Task-Automator</h3>
-    <p>An AI-based tool to automate repetitive tasks.</p>
-    <a href="https://github.com/iconm21/AI-Task-Automator" target="_blank">GitHub Link</a>
-    <a href="https://aitaskautomator.com" target="_blank" class="btn">Live Demo</a>
+
+  <div class="skill-category">
+    <h2 class="category-title">Database & Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL Logo" class="skill-icon" />
+        <span class="skill-name">MySQL</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git Logo" class="skill-icon" />
+        <span class="skill-name">Git</span>
+      </div>
+    </div>
   </div>
-  <div class="project-card">
-    <h3>Interactive Web Scraper</h3>
-    <p>A tool to scrape data from websites interactively.</p>
-    <a href="https://github.com/iconm21/Interactive-Web-Scraper" target="_blank">GitHub Link</a>
-    <a href="https://interactivewebscraper.com" target="_blank" class="btn">Live Demo</a>
-  </div>
-  <div class="project-card">
-    <h3>FULL-STACK-WEB-APPLICATION</h3>
-    <p>A full-stack application showcasing both backend and frontend technologies.</p>
-    <a href="https://github.com/iconm21/FULL-STACK-WEB-APPLICATION" target="_blank">GitHub Link</a>
-    <a href="https://fullstackwebapplication.com" target="_blank" class="btn">Live Demo</a>
-  </div>
-  <div class="project-card">
-    <h3>Task Project</h3>
-    <p>A project management tool designed to enhance productivity.</p>
-    <a href="https://github.com/iconm21/Task-Project" target="_blank">GitHub Link</a>
-    <a href="https://taskproject.com" target="_blank" class="btn">Live Demo</a>
+
+  <div class="skill-category">
+    <h2 class="category-title">Cybersecurity</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="assets/web-security.png" alt="Cybersecurity Logo" class="skill-icon" />
+        <span class="skill-name">Cybersecurity</span>
+      </div>
+      <div class="skill-item">
+        <img src="assets/Network.png" alt="Networking Logo" class="skill-icon" />
+        <span class="skill-name">Networking</span>
+      </div>
+      <div class="skill-item">
+        <img src="assets/network-security-cloud.png" alt="Cloud Security Logo" class="skill-icon" />
+        <span class="skill-name">Cloud Security</span>
+      </div>
+    </div>
   </div>
 </section>
+
+
+    <section id="internships">
+      <p class="section__text__p1">My Professional</p>
+      <h1 class="title">Internship Experience</h1>
+      <div class="internship-timeline">
+        <div class="timeline-container">
+
+          <!-- InternBoot -->
+          <div class="timeline-item">
+            <div class="timeline-dot active"></div>
+            <div class="timeline-content intern-card">
+              <div class="intern-header">
+                <div class="intern-logo-wrap">
+                  <span class="intern-emoji">💻</span>
+                </div>
+                <div>
+                  <div class="timeline-year intern-badge">InternBoot</div>
+                  <h3>Software Development Intern</h3>
+                  <h4>🏢 InternBoot &nbsp;|&nbsp; 🌐 Virtual Internship</h4>
+                </div>
+              </div>
+              <div class="intern-grade">🏆 Grade: A</div>
+              <div class="internship-details">
+                <h5>Key Responsibilities & Achievements:</h5>
+                <ul>
+                  <li>💻 Completed full software development internship achieving an <strong>A Grade</strong> for outstanding technical performance</li>
+                  <li>🚀 Gained hands-on experience in building end-to-end applications and understanding real-world software development workflows</li>
+                  <li>🐛 Sharpened skills in coding, debugging, and software deployment through live project tasks</li>
+                  <li>🔄 Applied SDLC principles including requirement analysis, design, development, testing and delivery</li>
+                  <li>🤝 Collaborated with virtual teams, practiced version control using Git & GitHub</li>
+                  <li>📦 Delivered functional software modules meeting project specifications and deadlines</li>
+                </ul>
+              </div>
+              <div class="intern-tags">
+                <span class="intern-tag">Software Development</span>
+                <span class="intern-tag">SDLC</span>
+                <span class="intern-tag">Git</span>
+                <span class="intern-tag">Debugging</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EduSkill -->
+          <div class="timeline-item">
+            <div class="timeline-dot active"></div>
+            <div class="timeline-content intern-card">
+              <div class="intern-header">
+                <div class="intern-logo-wrap">
+                  <span class="intern-emoji">🐍</span>
+                </div>
+                <div>
+                  <div class="timeline-year intern-badge">Jan – Mar 2025</div>
+                  <h3>Python Full Stack Developer</h3>
+                  <h4>🏢 EduSkill Academy &nbsp;|&nbsp; 🌐 Virtual Internship</h4>
+                </div>
+              </div>
+              <div class="internship-details">
+                <h5>Key Responsibilities & Achievements:</h5>
+                <ul>
+                  <li>🚀 Built dynamic, responsive web applications using <strong>Flask (backend)</strong> and <strong>React.js (frontend)</strong></li>
+                  <li>🔗 Designed and implemented RESTful APIs with full CRUD operations integrated with MySQL database</li>
+                  <li>⚡ Optimized SQL queries improving database performance by <strong>30%</strong> through indexing and query restructuring</li>
+                  <li>🎨 Developed reusable UI components with HTML, CSS, and React.js for seamless user experience</li>
+                  <li>🔐 Applied input validation and secure coding practices for backend reliability</li>
+                  <li>📱 Ensured mobile-responsive design across different screen sizes and devices</li>
+                </ul>
+              </div>
+              <div class="intern-tags">
+                <span class="intern-tag">Python</span>
+                <span class="intern-tag">Flask</span>
+                <span class="intern-tag">React.js</span>
+                <span class="intern-tag">MySQL</span>
+                <span class="intern-tag">REST APIs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zscaler -->
+          <div class="timeline-item">
+            <div class="timeline-dot completed"></div>
+            <div class="timeline-content intern-card">
+              <div class="intern-header">
+                <div class="intern-logo-wrap">
+                  <span class="intern-emoji">🔐</span>
+                </div>
+                <div>
+                  <div class="timeline-year intern-badge">Jul – Sep 2024</div>
+                  <h3>Zero Trust Cloud Security Specialist</h3>
+                  <h4>🏢 Zscaler Academy &nbsp;|&nbsp; 🌐 Virtual Internship</h4>
+                </div>
+              </div>
+              <div class="internship-details">
+                <h5>Key Responsibilities & Achievements:</h5>
+                <ul>
+                  <li>🔒 Implemented <strong>Zero Trust architecture</strong> principles for securing modern cloud environments</li>
+                  <li>☁️ Gained deep expertise in enterprise-grade cloud security solutions, policies, and protocols</li>
+                  <li>🛡️ Studied advanced threat protection and secure access service edge (SASE) frameworks</li>
+                  <li>🎓 Deepened understanding of identity-based access controls and micro-segmentation strategies</li>
+                  <li>📊 Analyzed real-world security vulnerabilities and designed effective mitigation strategies</li>
+                  <li>🌐 Explored Zscaler Internet Access (ZIA) and Zero Trust Network Access (ZTNA) models</li>
+                </ul>
+              </div>
+              <div class="intern-tags">
+                <span class="intern-tag">Zero Trust</span>
+                <span class="intern-tag">Cloud Security</span>
+                <span class="intern-tag">SASE</span>
+                <span class="intern-tag">ZTNA</span>
+                <span class="intern-tag">Cybersecurity</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="projects-grid">
+
+        <!-- Project 1: DeepFake Detection -->
+        <div class="proj-card">
+          <div class="proj-img-wrap">
+            <img src="./assets/project1.png" alt="DeepFake Detection Screenshot" class="proj-screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="proj-img-fallback" style="display:none;">
+              <div class="proj-fallback-inner">
+                <span class="proj-fallback-icon">🤖</span>
+                <span class="proj-fallback-label">DeepFake Detection</span>
+              </div>
+            </div>
+            <div class="proj-img-overlay">
+              <div class="proj-tech-row">
+                <span class="proj-tech">Python</span>
+                <span class="proj-tech">TensorFlow</span>
+                <span class="proj-tech">OpenCV</span>
+                <span class="proj-tech">Flask</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row">
+              <h2 class="proj-title">DeepFake Detection using CNN</h2>
+              <span class="proj-status">AI / ML</span>
+            </div>
+            <p class="proj-desc">Engineered a CNN model achieving <strong>93% accuracy</strong> on FaceForensics++. Integrated into a scalable Flask API with a real-time web interface for deepfake image classification.</p>
+            <ul class="proj-points">
+              <li>Reduced inference latency by 20% via preprocessing optimization</li>
+              <li>Built real-time prediction web interface with Flask</li>
+              <li>Trained on FaceForensics++ industry-standard dataset</li>
+            </ul>
+            <div class="proj-btns">
+              <button class="proj-btn proj-btn-outline" onclick="location.href='https://github.com/iconm21'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                GitHub
+              </button>
+              <button class="proj-btn proj-btn-fill" onclick="location.href='https://github.com/iconm21'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Flask CRUD -->
+        <div class="proj-card">
+          <div class="proj-img-wrap">
+            <img src="./assets/project2.png" alt="Flask CRUD Application Screenshot" class="proj-screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="proj-img-fallback" style="display:none;">
+              <div class="proj-fallback-inner">
+                <span class="proj-fallback-icon">🗄️</span>
+                <span class="proj-fallback-label">Flask CRUD App</span>
+              </div>
+            </div>
+            <div class="proj-img-overlay">
+              <div class="proj-tech-row">
+                <span class="proj-tech">Flask</span>
+                <span class="proj-tech">MySQL</span>
+                <span class="proj-tech">REST APIs</span>
+                <span class="proj-tech">Postman</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row">
+              <h2 class="proj-title">Flask CRUD App with MySQL</h2>
+              <span class="proj-status">Full Stack</span>
+            </div>
+            <p class="proj-desc">Scalable REST API system using Flask and MySQL with secure authentication, input validation, and robust error handling for production-ready reliability.</p>
+            <ul class="proj-points">
+              <li>Implemented secure authentication & input validation</li>
+              <li>Load-tested to handle <strong>500+ concurrent users</strong></li>
+              <li>Full CRUD endpoints tested and documented via Postman</li>
+            </ul>
+            <div class="proj-btns">
+              <button class="proj-btn proj-btn-outline" onclick="location.href='https://github.com/iconm21'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                GitHub
+              </button>
+              <button class="proj-btn proj-btn-fill" onclick="location.href='https://github.com/iconm21'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Portfolio Website -->
+        <div class="proj-card">
+          <div class="proj-img-wrap">
+            <img src="./assets/project3.png" alt="Portfolio Website Screenshot" class="proj-screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="proj-img-fallback" style="display:none;">
+              <div class="proj-fallback-inner">
+                <span class="proj-fallback-icon">🌐</span>
+                <span class="proj-fallback-label">Portfolio Website</span>
+              </div>
+            </div>
+            <div class="proj-img-overlay">
+              <div class="proj-tech-row">
+                <span class="proj-tech">HTML</span>
+                <span class="proj-tech">CSS</span>
+                <span class="proj-tech">JavaScript</span>
+                <span class="proj-tech">Vercel</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row">
+              <h2 class="proj-title">Personal Portfolio Website</h2>
+              <span class="proj-status">Web Dev</span>
+            </div>
+            <p class="proj-desc">Fully responsive portfolio site deployed on Vercel, featuring custom UI components, SEO improvements and performance optimizations for faster load times.</p>
+            <ul class="proj-points">
+              <li>Fully responsive across mobile, tablet & desktop</li>
+              <li>Custom SEO improvements for discoverability</li>
+              <li>Performance-optimized for faster load times</li>
+            </ul>
+            <div class="proj-btns">
+              <button class="proj-btn proj-btn-outline" onclick="location.href='https://github.com/iconm21'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                GitHub
+              </button>
+              <button class="proj-btn proj-btn-fill" onclick="location.href='https://nalajammurali21portfolio.vercel.app'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Patients Management System -->
+        <div class="proj-card">
+          <div class="proj-img-wrap">
+            <img src="./assets/project4.png" alt="Patients Management System Screenshot" class="proj-screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="proj-img-fallback" style="display:none;">
+              <div class="proj-fallback-inner">
+                <span class="proj-fallback-icon">🏥</span>
+                <span class="proj-fallback-label">Patients Management</span>
+              </div>
+            </div>
+            <div class="proj-img-overlay">
+              <div class="proj-tech-row">
+                <span class="proj-tech">Python</span>
+                <span class="proj-tech">Flask</span>
+                <span class="proj-tech">MySQL</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row">
+              <h2 class="proj-title">Patients Management System</h2>
+              <span class="proj-status">Backend</span>
+            </div>
+            <p class="proj-desc">Modular CRUD system for patient data management with an efficient relational database schema designed for scalability and reliable healthcare data handling.</p>
+            <ul class="proj-points">
+              <li>Efficient relational DB schema for scalable data storage</li>
+              <li>Error-handling & validation for data reliability</li>
+              <li>Full patient record lifecycle management (CRUD)</li>
+            </ul>
+            <div class="proj-btns">
+              <button class="proj-btn proj-btn-outline" onclick="location.href='https://github.com/iconm21'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                GitHub
+              </button>
+              <button class="proj-btn proj-btn-fill" onclick="location.href='https://github.com/iconm21'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#certifications'"
+      />
+    </section>
+
+    <section id="certifications">
+      <p class="section__text__p1">My Achievements</p>
+      <h1 class="title">Certifications</h1>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon-wrap">
+            <span class="cert-emoji">🌐</span>
+          </div>
+          <h3>Introduction to Cybersecurity</h3>
+          <p class="cert-issuer">Cisco Networking Academy</p>
+          <p class="cert-date">📅 June 2025</p>
+          <p class="cert-desc">Network Security Fundamentals — covering threat landscapes, security policies, and foundational defence strategies.</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-wrap">
+            <span class="cert-emoji">🪟</span>
+          </div>
+          <h3>Git & GitHub</h3>
+          <p class="cert-issuer">Microsoft</p>
+          <p class="cert-date">📅 July 2025</p>
+          <p class="cert-desc">Version Control Essentials — branching, merging, pull requests, and collaborative development workflows.</p>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:nalajammurali@gmail.com">nalajammurali@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://LinkedIn.com/in/nalajammurali21">LinkedIn</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/github.png"
+            alt="GitHub icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://github.com/iconm21">GitHub</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Phone icon"
+            class="icon contact-icon"
+          />
+          <p><a href="tel:+919347133821">+91 9347133821</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#internships">Internships</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
